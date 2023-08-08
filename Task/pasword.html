@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form onsubmit="validpassword()">
+    Password : <input type="password" name="" id="pas">
+     <br><br>
+    Confirm Password : <input type="password" name="" id="con">
+    <br><br><br>
+    <input type="submit" name="" id="sub" value="ok">
+
+
+    <script>
+    pas = document.getElementById('pas');
+    con = document.getElementById('con');
+    sub = document.getElementById('sub');
+
+    function validpassword()
+    {
+      if(pas.value!=con.value)
+      {
+        alert('password and confirm password are not same');
+      }
+    }
+
+    </script>
+  </form>
+</body>
+</html>
