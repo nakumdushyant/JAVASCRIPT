@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider</title>
+    <style>
+        .slider-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+}
+
+.slide {
+  flex: 0 0 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+    </style>
+</head>
+<body>
+    <div class="slider-container">
+  <div class="slider">
+    <div class="slide"><img src="https://wowslider.com/sliders/demo-18/data1/images/hongkong1081704.jpg" alt="Slide 1" width="100%" height="200px"></div>
+    <div class="slide"><img src="https://soliloquywp.com/wp-content/uploads/2013/05/action-backlit-beach-1046896-1200x450_c.jpg" alt="Slide 2"width="100%" height="500px"></div>
+    <div class="slide"><img src="https://jssors8.azureedge.net/demos/image-slider/img/px-beach-daylight-fun-1430675-image.jpg" alt="Slide 3"width="100%" height="500px"></div>
+  </div>
+  <button id="prevBtn">Previous</button>
+  <button id="nextBtn">Next</button>
+</div>
+
+<script>
+    const slider = document.querySelector('.slider');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const slides = document.querySelectorAll('.slide');
+let currentIndex = 0;
+
+function updateSliderPosition() {
+  slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
+
+function goToSlide(index) {
+  currentIndex = index;
+  updateSliderPosition();
+}
+
+prevBtn.addEventListener('click', () => {
+  if (currentIndex > 0) {
+    currentIndex--;
+    updateSliderPosition();
+  }
+});
+
+nextBtn.addEventListener('click', () => {
+  if (currentIndex < slides.length - 1) {
+    currentIndex++;
+    updateSliderPosition();
+  }
+});
+
+// Optional: Auto-advance the slider
+function autoAdvanceSlider() {
+  setInterval(() => {
+    if (currentIndex < slides.length - 1) {
+      currentIndex++;
+      updateSliderPosition();
+    } else {
+      currentIndex = 0;
+      updateSliderPosition();
+    }
+  }, 5000); // Change slide every 5 seconds
+}
+
+autoAdvanceSlider();
+
+</script>
+</body>
+</html>
