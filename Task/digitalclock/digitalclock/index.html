@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>digital clock</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+
+   <!-- div gaurav used for bacground  -->
+   <!-- div container used for clock body  -->
+   <!-- div clock used for carry all clock body deatil like hrs, sec , min etc...   -->
+
+<div class="gaurav">     
+
+<div class="container">
+    <div class="clock">
+        <span id="hrs">00</span>
+        <span>:</span>
+        <span id="min">00</span>
+        <span>:</span>
+        <span id="sec">00</span>
+    </div>
+</div>
+
+</div>
+
+
+<script>
+
+    // first we get the all values for set in the span value throw ineerhtml
+
+    let hrs = document.getElementById("hrs");
+    let min = document.getElementById("min");
+    let sec = document.getElementById("sec");
+
+    
+//  her we used fuction because who called it self after every 1000 millseconds that why we used setinterval
+// currentTime is predefined function who show the current time 
+    
+setInterval(()=>{
+        let currentTime = new Date();
+        
+     hrs.innerHTML= currentTime.getHours();
+     min.innerHTML= currentTime.getMinutes();
+     sec.innerHTML= currentTime.getSeconds();
+
+    },1000);
+     
+    
+</script>
+
+</body>
+</html>
